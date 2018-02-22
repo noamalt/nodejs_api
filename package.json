@@ -1,0 +1,28 @@
+{
+  "name": "MyNodeAPI",
+  "version": "1.0.0",
+  "description": "Test API",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-mssql": "^1.5.0",
+    "express": "^4.14.0",
+    "mssql": "^3.3.0",
+    "mssql-connection-string": "0.0.5",
+    "node": "^9.5.0",
+    "ping": "^0.2.2",
+    "request": "^2.83.0",
+    "restify": "^6.3.4",
+    "server.js": "^1.0.0",
+    "tedious": "^2.3.1",
+    "tedious-connection-pool": "^1.0.5",
+    "wcf.js": "0.0.6"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": {
+    "name": "Noam",
+    "email": "noam.altarovici@gmail.com"
+  }
+}
