@@ -11,6 +11,7 @@
     "mssql-connection-string": "0.0.5",
     "node": "^9.5.0",
     "ping": "^0.2.2",
+    "ping-monitor": "^0.1.6",
     "request": "^2.83.0",
     "restify": "^6.3.4",
     "server.js": "^1.0.0",

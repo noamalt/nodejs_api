@@ -61,15 +61,15 @@ var  executeQuery = function(res, query){
                          var request = new sql.Request();
                           
                          // query to the database
-                         request.query(query, function (err, res) {
+                         request.query(query, function (err, rs) {
                            if (err) {
                                       console.log("Error while querying database :- " + err);
                                       res.send(err);
                                      }
                                      else {
-                                       // var json = JSON.parse(res);
-                                       console.log(res);
-                                     // res.send(json);
+                                      // var json = JSON.parse(res);
+                                      // console.log(rs);
+                                     res.send(rs);
                                     }
                                });
                        }
@@ -77,28 +77,29 @@ var  executeQuery = function(res, query){
 }
 
 //GET API
- app.get('/api/users', function(req, res){
-                var query = "select top 100 * from users where isactive=1 order by userid desc";
+ app.get('/api/leads', function(req, res){
+                var query = "select top 10 * from leads order by dateentered desc";
     
                 executeQuery (res, query);
                 
 });  
 
 //POST API
- app.post('/api/users', function(req , res){
-                var query = "INSERT INTO [users] (Name,Email,Password) VALUES (req.body.Name,req.body.Email,req.body.Password)";
+ app.post('/api/leads', function(req , res){
+                var query = "INSERT INTO [leads] (FirstName,LastName,Email,Phone,LanguageID) VALUES ('" + req.body.FirstName + "','" + req.body.LastName+ "','" + req.body.Email + "','" + req.body.Phone + "'," + req.body.LanguageID + ")";
+              console.log(query);
                 executeQuery (res, query);
 });
 
 //PUT API
- app.put("/api/users/:id", function(req , res){
-                var query = "UPDATE [users] SET Name= " + req.body.username  +  " , Email=  " + req.body.email + "  WHERE Id= " + req.params.id;
+ app.put("/api/leads/:id", function(req , res){
+                var query = "UPDATE [leads] SET FirstName= '" + req.body.FirstName  +  "' , Email=  '" + req.body.Email + "', LanguageID= " + req.body.LanguageID + ",OfficeID=6  WHERE LeadID= " + req.params.id;
                 executeQuery (res, query);
 });
 
 // DELETE API
- app.delete("/api/users /:id", function(req , res){
-                var query = "DELETE FROM [users] WHERE Id=" + req.params.id;
+ app.delete("/api/leads/:id", function(req , res){
+                var query = "DELETE FROM [leads] WHERE LeadID=" + req.params.id;
                 executeQuery (res, query);
 
            
