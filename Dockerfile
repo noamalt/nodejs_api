@@ -1,7 +1,7 @@
 FROM node:7
 WORKDIR /nodejs_api
-COPY package.json /app
+COPY package.json /nodejs_api
 RUN npm install
-COPY . /app
-CMD node server.js
+COPY . /nodejs_api
+CMD node server.ts
 EXPOSE 8080
